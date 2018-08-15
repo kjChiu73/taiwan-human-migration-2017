@@ -1,0 +1,20 @@
+{
+  "name": "echarts-practice",
+  "version": "1.0.0",
+  "description": "Edit from https://github.com/wandergis/leaflet-echarts",
+  "main": "src/leaflet-echarts.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+  },
+  "keywords": [
+  ],
+  "author": "kjchiu",
+  "license": "MIT",
+  "bugs": {
+  }
+}
