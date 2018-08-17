@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>台灣 2017 人口遷徙</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/leaflet/0.7.7/leaflet.css">
+    <style>
+        html, body, #map {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="http://cdn.bootcss.com/leaflet/0.7.7/leaflet.js"></script>
+<script src="./src/leaflet-echarts.js"></script>
+<script src="./lib/echarts.source.js"></script>
+<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="./data/country-lat-lng.js"></script>
+<script src="./data/export-lat-lng.js"></script>
+<script>
+  var migration = [];
+</script>
+<script src="./data/export-migration-1.js"></script>
+<script src="./data/export-migration-2.js"></script>
+<script src="./data/export-migration-3.js"></script>
+<script src="./data/export-migration-4.js"></script>
+<script src="./data/export-migration-5.js"></script>
+<script src="./data/export-migration-6.js"></script>
+<script src="./data/export-migration-7.js"></script>
+<script src="./data/export-migration-8.js"></script>
+<script src="./data/export-migration-9.js"></script>
+<script src="./data/export-migration-10.js"></script>
+<script src="./data/export-migration-11.js"></script>
+<script src="./data/export-migration-12.js"></script>
+<script>
+  var map = L.map('map');
+  var baseLayers = {
+    '高德地圖': L.tileLayer('http://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+      subdomains: "1234"
+    }),
+    '高德影像': L.layerGroup([L.tileLayer('http://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}', {
+      subdomains: "1234"
+    }), L.tileLayer('http://t{s}.tianditu.cn/DataServer?T=cta_w&X={x}&Y={y}&L={z}', {
+      subdomains: "1234"
+    })]),
+    '立體地圖': L.tileLayer('https://a.tiles.mapbox.com/v3/examples.c7d2024a/{z}/{x}/{y}.png', {
+      attribution: 'Map &copy; Pacific Rim Coordination Center (PRCC).  Certain data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      key: 'BC9A493B41014CAABB98F0471D759707',
+      styleId: 22677
+    }),
+    'Foursquare': L.tileLayer('https://a.tiles.mapbox.com/v3/foursquare.map-0y1jh28j/{z}/{x}/{y}.png', {
+      attribution: 'Map &copy; Pacific Rim Coordination Center (PRCC).  Certain data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      key: 'BC9A493B41014CAABB98F0471D759707',
+      styleId: 22677
+    }),
+    'GeoQ灰色底圖': L.tileLayer('http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}').addTo(map)
+  };
+  L.tileLayer('https://a.tiles.mapbox.com/v3/foursquare.map-0y1jh28j/{z}/{x}/{y}.png', {
+    attribution: 'Map &copy; Pacific Rim Coordination Center (PRCC).  Certain data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    key: 'BC9A493B41014CAABB98F0471D759707',
+    styleId: 22677
+  });
+  var layercontrol = L.control.layers(baseLayers, {
+    position: "topleft"
+  }).addTo(map);
+  map.setView(L.latLng(23.5974167, 119.8961272), 8);
+  var overlay = new L.echartsLayer(map, echarts);
+  var chartsContainer=overlay.getEchartsContainer();
+  var myChart=overlay.initECharts(chartsContainer);
+  window.onresize = myChart.onresize;
+  var option = {
+  title : {
+      text: '台灣 2017 人口遷徙Leaflet版',
+      subtext: '- By KJ',
+      x:'center',
+      y:'top',
+      textStyle: {
+        color: '#FFC107'
+      }
+    },
+    legend: {
+      show: true,
+      x: 'right',
+      orient: 'vertical',
+      textStyle: {
+        color: 'red'
+      },
+      data: []
+    },
+    series : [{
+      name: "人口遷徙",
+      type: 'map',
+      mapType: 'none',
+      itemStyle: {
+        normal: {
+          borderColor:'rgba(100,149,237,0.2)',
+          borderWidth:0.5,
+          areaStyle: {
+            color: '#1b1b1b'
+          }
+        }
+      },
+      data: [{}],
+      hoverable: false,
+      clickable: false,
+      roam: true,
+      markLine: {
+        effect: {
+          color: 'rgba(204, 246, 255, 0.09)',
+          show: true,
+          period: 40
+        },
+        bundling: {
+          enable: true
+        },
+        large: true,
+        smooth: true,
+        smoothness: 0.1,
+        symbol: ['none', 'none'],
+        itemStyle: {
+          normal: {
+            lineStyle: {
+              color: 'rgba(2, 166, 253, 0.05)',
+              type: 'solid',
+              width: 0.5,
+              opacity: 0.2
+            }
+          }
+        },
+        data: []
+      },
+      markPoint: {
+        symbol: 'circle',
+        symbolSize: 1.5,
+        itemStyle: {
+          normal: {
+            color: 'rgba(255, 0, 0, 0.5)'
+          }
+        },
+        data: []
+      }
+    }]
+  };
+  areaLatLng = areaLatLng[0];
+  function getCountryGeoCoord (name) {
+    var city = country[name];
+    return [city.lng, city.lat];
+  }
+  function getAreaGeoCoord (name) {
+    return [parseFloat(areaLatLng[name].lng), parseFloat(areaLatLng[name].lat)];
+  }
+  var lines = [];
+  migration.forEach(month => {
+    month = month[0];
+    for (areaName in month) {
+      var start = getAreaGeoCoord(areaName);
+      for (countryName in month[areaName]) {
+        if (month[areaName][countryName].male + month[areaName][countryName].female > 0) {
+          var end = getCountryGeoCoord(countryName);
+          lines.push({
+            start: start,
+            end: end,
+          });
+        }
+      }
+    }
+  });
+  option.series[0].markLine.data = lines.map(function (line) {
+      return [{
+          geoCoord: line.start
+      }, {
+          geoCoord: line.end
+      }];
+  });
+  overlay.setOption(option);
+</script>
+</body>
+</html>
