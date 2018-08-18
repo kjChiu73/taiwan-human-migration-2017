@@ -66,80 +66,266 @@
       text: '台灣 2017 人口遷徙Leaflet版',
       subtext: '- By KJ',
       x:'center',
-      y:'top',
+      y:'bottom',
       textStyle: {
         color: '#FFC107'
       }
     },
     legend: {
       show: true,
-      x: 'right',
+      x: 'left',
+      y:'bottom',
       orient: 'vertical',
       textStyle: {
         color: 'red'
       },
-      data: []
+      data: [
+        '2017/1-3',
+        '2017/4-6',
+        '2017/7-9',
+        '2017/10-12',
+        '六都'
+      ]
     },
-    series: [{
-      name: "人口遷徙",
-      type: 'map',
-      mapType: 'none',
-      itemStyle: {
-        normal: {
-          borderColor:'rgba(100,149,237,0.2)',
-          borderWidth:0.5,
-          areaStyle: {
-            color: '#1b1b1b'
-          }
-        }
-      },
-      data: [{}],
-      hoverable: false,
-      clickable: false,
-      roam: true,
-      markLine: {
-        effect: {
-          color: 'rgba(204, 246, 255, 0.09)',
-          show: true,
-          period: 40
-        },
-        bundling: {
-          enable: true
-        },
-        large: true,
-        smooth: true,
-        smoothness: 0.1,
-        symbol: ['none', 'none'],
+    series: [
+      {
+        name: '2017/1-3',
+        type: 'map',
+        mapType: 'none',
         itemStyle: {
           normal: {
-            lineStyle: {
-              color: 'rgba(2, 166, 253, 0.05)',
-              type: 'solid',
-              width: 0.5,
-              opacity: 0.2
+            borderColor:'rgba(100,149,237,0.2)',
+            borderWidth:0.5,
+            areaStyle: {
+              color: '#1b1b1b'
             }
           }
         },
-        data: []
+        data: [{}],
+        hoverable: false,
+        clickable: false,
+        roam: true,
+        markLine: {
+          effect: {
+            color: 'rgba(204, 246, 255, 0.09)',
+            show: true,
+            period: 40
+          },
+          bundling: {
+            enable: true
+          },
+          large: true,
+          smooth: true,
+          smoothness: 0.1,
+          symbol: ['none', 'none'],
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                color: 'rgba(2, 166, 253, 0.05)',
+                type: 'solid',
+                width: 0.5,
+                opacity: 0.2
+              }
+            }
+          },
+          data: []
+        },
+        markPoint: {
+          symbol: 'pin',
+          symbolSize: 3,
+          itemStyle: {
+            normal: {
+              color: 'rgba(255, 0, 0, 0.8)'
+            }
+          },
+          data: []
+        }
       },
-      markPoint: {
-        symbol: 'circle',
-        symbolSize: 1.5,
+      {
+        name: '2017/4-6',
+        type: 'map',
+        mapType: 'none',
         itemStyle: {
           normal: {
-            color: 'rgba(255, 0, 0, 0.5)'
+            borderColor:'rgba(100,149,237,0.2)',
+            borderWidth:0.5,
+            areaStyle: {
+              color: '#1b1b1b'
+            }
           }
         },
-        data: [
-          {geoCoord: [121.3662934, 25.0174719]},
-          {geoCoord: [121.3646021, 24.9875278]},
-          {geoCoord: [120.9519979, 24.8551722]},
-          {geoCoord: [120.6756869, 24.2204731]},
-          {geoCoord: [120.1312995, 23.1229948]},
-          {geoCoord: [120.3217861, 22.6313229]},
-        ]
-      }
-    }]
+        data: [{}],
+        hoverable: false,
+        clickable: false,
+        roam: true,
+        markLine: {
+          effect: {
+            color: 'rgba(204, 246, 255, 0.09)',
+            show: true,
+            period: 40
+          },
+          bundling: {
+            enable: true
+          },
+          large: true,
+          smooth: true,
+          smoothness: 0.1,
+          symbol: ['none', 'none'],
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                color: 'rgba(253, 166, 2, 0.05)',
+                type: 'solid',
+                width: 0.5,
+                opacity: 0.2
+              }
+            }
+          },
+          data: []
+        },
+        markPoint: {
+          symbol: 'pin',
+          symbolSize: 3,
+          itemStyle: {
+            normal: {
+              color: 'rgba(255, 0, 0, 0.8)'
+            }
+          },
+          data: []
+        }
+      },
+      {
+        name: '2017/7-9',
+        type: 'map',
+        mapType: 'none',
+        itemStyle: {
+          normal: {
+            borderColor:'rgba(100,149,237,0.2)',
+            borderWidth:0.5,
+            areaStyle: {
+              color: '#1b1b1b'
+            }
+          }
+        },
+        data: [{}],
+        hoverable: false,
+        clickable: false,
+        roam: true,
+        markLine: {
+          effect: {
+            color: 'rgba(204, 246, 255, 0.09)',
+            show: true,
+            period: 40
+          },
+          bundling: {
+            enable: true
+          },
+          large: true,
+          smooth: true,
+          smoothness: 0.1,
+          symbol: ['none', 'none'],
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                color: 'rgba(166, 253, 253, 0.05)',
+                type: 'solid',
+                width: 0.5,
+                opacity: 0.2
+              }
+            }
+          },
+          data: []
+        },
+        markPoint: {
+          symbol: 'pin',
+          symbolSize: 3,
+          itemStyle: {
+            normal: {
+              color: 'rgba(255, 0, 0, 0.8)'
+            }
+          },
+          data: []
+        }
+      },
+      {
+        name: '2017/10-12',
+        type: 'map',
+        mapType: 'none',
+        itemStyle: {
+          normal: {
+            borderColor:'rgba(100,149,237,0.2)',
+            borderWidth:0.5,
+            areaStyle: {
+              color: '#1b1b1b'
+            }
+          }
+        },
+        data: [{}],
+        hoverable: false,
+        clickable: false,
+        roam: true,
+        markLine: {
+          effect: {
+            color: 'rgba(204, 246, 255, 0.09)',
+            show: true,
+            period: 40
+          },
+          bundling: {
+            enable: true
+          },
+          large: true,
+          smooth: true,
+          smoothness: 0.1,
+          symbol: ['none', 'none'],
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                color: 'rgba(2, 253, 166, 0.05)',
+                type: 'solid',
+                width: 0.5,
+                opacity: 0.2
+              }
+            }
+          },
+          data: []
+        },
+        markPoint: {
+          symbol: 'pin',
+          symbolSize: 3,
+          itemStyle: {
+            normal: {
+              color: 'rgba(255, 0, 0, 0.8)'
+            }
+          },
+          data: []
+        }
+      },
+      {
+        name: '六都',
+        type: 'map',
+        mapType: 'none',
+        itemStyle: {
+          normal: {
+            borderColor:'rgba(100,149,237,0.2)',
+            borderWidth:0.5,
+            areaStyle: {
+              color: '#1b1b1b'
+            }
+          }
+        },
+        data: [{}],
+        markPoint: {
+          symbol: 'pin',
+          symbolSize: 5,
+          itemStyle: {
+            normal: {
+              color: 'rgba(255, 255, 255, 0.8)'
+            }
+          },
+          data: []
+        }
+      },
+    ]
   };
   areaLatLng = areaLatLng[0];
   function getCountryGeoCoord (name) {
@@ -150,12 +336,19 @@
     return [parseFloat(areaLatLng[name].lng), parseFloat(areaLatLng[name].lat)];
   }
   var lines = [];
-  migration.forEach(month => {
-    month = month[0];
+  var areaOutHot = [];
+  var count = 0;
+  for (index in migration) {
+    month = migration[index][0];
     for (areaName in month) {
       var start = getAreaGeoCoord(areaName);
       for (countryName in month[areaName]) {
-        if (month[areaName][countryName].male + month[areaName][countryName].female > 0) {
+        var outTotal = month[areaName][countryName].male + month[areaName][countryName].female;
+        if (!areaOutHot[areaName]) {
+          areaOutHot[areaName] = 0;
+        }
+        areaOutHot[areaName] += outTotal;
+        if (outTotal > 0) {
           var end = getCountryGeoCoord(countryName);
           lines.push({
             start: start,
@@ -164,14 +357,36 @@
         }
       }
     }
-  });
-  option.series[0].markLine.data = lines.map(function (line) {
-      return [{
-          geoCoord: line.start
-      }, {
-          geoCoord: line.end
-      }];
-  });
+    if (0 == (index + 1) % 3) {
+      option.series[count].markLine.data = lines.map(function (line) {
+        return [{
+            geoCoord: line.start
+        }, {
+            geoCoord: line.end
+        }];
+      });
+
+      var getOnePoint = [];
+      for (areaName in areaOutHot) {
+        console.log(areaName + ':' + areaOutHot[areaName]);
+        if (areaOutHot[areaName] > 1500) {
+          getOnePoint.push({geoCoord: getAreaGeoCoord(areaName)});
+        }
+      }
+      option.series[count].markPoint.data = getOnePoint;
+      areaOutHot = [];
+      count++;
+      lines = [];
+    }
+  }
+
+  var countrys = [];
+  for (countryName in country) {
+    countrys.push({
+      geoCoord: [country[countryName].lng, country[countryName].lat]
+    });
+  }
+  option.series[count].markPoint.data = countrys;
   overlay.setOption(option);
 </script>
 </body>
